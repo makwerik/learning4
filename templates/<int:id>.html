@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+
+
+{% block title %}{{ show_post.heading }}{% endblock %}
+
+{% block content %}
+    <h1 style="text-align: center;">{{ show_post.heading }}</h1>
+    <div class="alert alert-info">
+    <h3>Статья № {{ show_post.id }}: {{ show_post. heading }}</h3>
+    <p>{{ show_post.text }}</p>
+    <p>Дата: {{ show_post.date.date() }}</p>
+    <a class="btn btn-warning" style="text-decoration: none;" href="/{{ show_post.id }}/update">Редактировать</a>
+    <a class="btn btn-danger" style="text-decoration: none;" href="/{{ show_post.id }}/delete">Удалить</a>
+
+    </div>
+{% endblock %}

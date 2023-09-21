@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+
+{% block title %} Главная страница {% endblock %}
+
+{% block content %}
+    <h1 style="text-align: center;">Главная страница</h1>
+    <div class="alert alert-info">
+        {% if show_posts|length > 0 %}
+            {% for p in show_posts %}
+                <h3>Статья № {{ p.id }}: {{ p. heading }}</h3>
+                <p>Анонс статьи: {{ p.announcement }}</p>
+                <p>Дата: {{ p.date.date() }}</p>
+                <a class="btn btn-warning" style="text-decoration: none;" href="/{{ p.id }}">Читать полностью</a>
+            {% endfor %}
+        {% else %}
+            <h2>Статей нет =(</h2>
+        {% endif %}
+    </div>
+{% endblock %}
